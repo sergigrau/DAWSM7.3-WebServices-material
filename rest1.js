@@ -1,3 +1,6 @@
+/**
+ * Aplicació en ExpressJE que crea una API REST senzilla
+ */
 const express = require('express');
 const app=express();
 var bodyParser = require('body-parser');
