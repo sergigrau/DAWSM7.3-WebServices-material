@@ -1,12 +1,9 @@
-/**
- * Aplicació en ExpressJE que crea una API REST senzilla
- */
 const express = require('express');
 const app=express();
 var bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
 
 var alumnes = [
     {codi:1, nom:'SERGI'},
@@ -22,6 +19,7 @@ app.get('/api/alumnes/:codi', (req, res)=>{
     res.send(alumne);
 });
 app.post('/api/alumnes', (req, res)=>{
+    console.log('req.body.codi');
     var alumne={codi: req.body.codi, nom: req.body.nom };
     alumnes.push(alumne);
     res.send(alumnes);
