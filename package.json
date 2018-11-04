@@ -1,0 +1,27 @@
+{
+  "name": "dawm07uf4-webservices-material",
+  "version": "1.0.0",
+  "description": "workshop M07UF4",
+  "main": "M01_REST_basic.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergigrau/DAWM07UF4-WebServices-material.git"
+  },
+  "keywords": [
+    "sergigrau"
+  ],
+  "author": "sergigrau@fje.edu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergigrau/DAWM07UF4-WebServices-material/issues"
+  },
+  "homepage": "https://github.com/sergigrau/DAWM07UF4-WebServices-material#readme"
+}

@@ -1,11 +1,16 @@
 # DAWM07UF4-WebServices-material
 Web Services Workshop. DAWM07UF4
 
-![alt tag](https://github.com/sergigrau/DAWM06UF4-2-AJAX-exercicis/blob/master/imatges/node.png)
+
+
 ![alt tag](https://github.com/sergigrau/DAWM06UF4-3-Express-material/blob/master/public/logo.png)
+![alt tag](https://cdn-images-1.medium.com/max/1600/1*QTeLq8g_qQ-IL8ry7pBwrg.jpeg)
+![alt tag](https://cdn-images-1.medium.com/max/1600/1*YI1tt4kGzvea-v4dAhZ90w.png)
 
 <h1>WebServices REST Workshop</h1>
 
 1.Simple Sample <br/>
 2.Complex REST<br/>
 3.REST JSON<br/>
+4.JWT<br/>
+3.OAth<br/>
