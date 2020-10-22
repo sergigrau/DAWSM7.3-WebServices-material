@@ -21,6 +21,7 @@ app.get('/hora', (req, res) => {
     const hora = (new Date()).toLocaleTimeString();
     res.status(200).send(`La hora és ${hora}`);
 });
+
 app.get("*", (req, res) => {
     res.sendStatus(404);
 });
@@ -41,6 +42,21 @@ app.post("/login", (req, res) => {
     res.status(200).send({ access_token: token })
 });
 
+
+app.post('/verifica', (req, res) => {
+    console.log(req.body.access_token);
+    try {
+        let u = jwt.verify(req.body.access_token, 'clau');
+        console.log(u);
+        res.status(200).send(`ok ${u.usuari}`);
+
+      } catch(err) {
+        res.status(400).send("Error");
+
+      }
+
+      
+});
 
 app.listen(PORT, () => {
     console.log(`Servidor execuntant-se en el port ${PORT}.`);
