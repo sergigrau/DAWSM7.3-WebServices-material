@@ -1,11 +1,18 @@
+/**
+ * Aplicació en ExpressJS que crea una API REST completa
+ * @author sergi.grau@fje.edu
+ * @version 2.0 10.10.21
+ */
+
+
 const express = require('express');
 const app=express();
-var bodyParser = require('body-parser');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: true}));
+app.use(express.json()) // per analitzar les peticions HTTP que portin JSON al body
 
-var productes = [
+
+let productes = [
     {cat:'ORD', nom:'ASUS', preu:1000},
     {cat:'ORD', nom:'MSI', preu:1200},
     {cat:'RAT', nom:'MS', preu:25},
@@ -15,8 +22,8 @@ var productes = [
 app.get('/api/productes', (req, res)=>res.send(productes));
 
 app.get('/api/productes/:cat', (req, res)=>{
-    var ps=[];
-    var producte = productes.forEach(function(p){
+    let ps=[];
+    let producte = productes.forEach(function(p){
         if (p.cat===req.params.cat) ps.push(p);
     });
     if (!producte) res.status(404, 'error');
@@ -24,13 +31,13 @@ app.get('/api/productes/:cat', (req, res)=>{
 });
 
 app.get('/api/productes/:cat/:nom', (req, res)=>{
-    var producte = productes.find(a =>a.cat===req.params.cat && a.nom===req.params.nom);
+    let producte = productes.find(a =>a.cat===req.params.cat && a.nom===req.params.nom);
     if (!producte) res.status(404, 'error');
     res.send(producte);
 });
 
 app.post('/api/productes', (req, res)=>{
-    var producte={'cat': req.body.cat, 'nom': req.body.nom, 'preu':parseInt(req.body.preu)};
+    let producte={'cat': req.body.cat, 'nom': req.body.nom, 'preu':parseInt(req.body.preu)};
     productes.push(producte);
     res.send(producte);
 });
@@ -43,15 +50,15 @@ app.delete('/api/productes/:cat', (req, res)=>{
     res.send(productes);
 });
 app.delete('/api/productes/:cat/:nom', (req, res)=>{
-    var producte = productes.find(a =>a.cat===req.params.cat && a.nom===req.params.nom);
-    var index =productes.indexOf(producte);
+    let producte = productes.find(a =>a.cat===req.params.cat && a.nom===req.params.nom);
+    let index =productes.indexOf(producte);
     productes.splice(index, 1);
     res.send(productes);
 });
 app.put('/api/productes/:cat/:nom', (req, res)=>{
-    var nouProducte={cat: req.body.cat, 'nom': req.body.nom , 'preu': parseInt(req.body.preu)};
-    var producte = productes.find(a =>a.cat===req.params.cat && a.nom===req.params.nom);
-    var index =productes.indexOf(producte);
+    let nouProducte={cat: req.body.cat, 'nom': req.body.nom , 'preu': parseInt(req.body.preu)};
+    let producte = productes.find(a =>a.cat===req.params.cat && a.nom===req.params.nom);
+    let index =productes.indexOf(producte);
     productes[index]=nouProducte;
 });
 

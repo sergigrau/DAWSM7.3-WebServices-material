@@ -5,10 +5,12 @@
 }
 */
 const express = require("express");
-const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const app = express();
-app.use(bodyParser.json());
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json()) // per analitzar les peticions HTTP que portin JSON al body
+
 
 const PORT = 8888;
 
