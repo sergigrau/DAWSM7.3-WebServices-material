@@ -36,10 +36,11 @@ app.delete('/api/alumnes/:codi', (req, res)=>{
     res.send();
 });
 app.put('/api/alumnes/:codi', (req, res)=>{
-    let nouAlumne={codi: req.body.codi, nom: req.body.nom };
-    let alumne = alumnes.find(a =>a.codi===parseInt(req.params.codi));
-    let index =alumnes.indexOf(alumne);
-    alumnes[index]=nouAlumne;
+ let alumne = alumnes.find(a =>a.codi===parseInt(req.params.codi));
+    alumne.codi = parseInt(req.body.codi);
+    alumne.nom = req.body.nom;
+    res.send('modificat');
+
 });
 
 app.listen(3000, ()=>console.log('inici servidor'));
